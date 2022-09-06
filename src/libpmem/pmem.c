@@ -866,7 +866,7 @@ pmem_init(void)
 		LOG(3, "Flushing CPU cache");
 	}
 
-    flush=0;
+    flush=1;
     printf("\t\t### flush=%d ###\n",flush);
 
 	Funcs.memmove_funcs = info.memmove_funcs;
