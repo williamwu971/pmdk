@@ -991,24 +991,29 @@ obj_descr_check(PMEMobjpool *pop, const char *layout, size_t poolsize)
 void fake_persist(const void *addr, size_t len){
     (void)addr;
     (void)len;
+    puts("fake_persist");
 }
 void fake_flush(const void *addr, size_t len){
     (void)addr;
     (void)len;
+    puts("fake_flush");
 }
 void fake_drain(void){
-
+    puts("fake_drain");
 }
 void *fake_memcpy(void *pmemdest, const void *src, size_t len, unsigned flags){
     (void)flags;
+    puts("fake_memcpy");
     return memcpy(pmemdest,src,len);
 }
 void *fake_memmove(void *pmemdest, const void *src, size_t len, unsigned flags){
     (void)flags;
+    puts("fake_memmove");
     return memmove(pmemdest,src,len);
 }
 void *fake_memset(void *pmemdest, int c, size_t len, unsigned flags){
     (void)flags;
+    puts("fake_memmove");
     memset(pmemdest,c,len);
 }
 
