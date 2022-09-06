@@ -160,8 +160,8 @@ int main(int argc, char **argv) {
              * todo: questionable flush here
              */
 
-            pmem_memcpy_persist(&map[locs[i]], page_data, granularity);
-//            pmem_memset_persist(&map[locs[i]], set, granularity);
+//            pmem_memcpy_persist(&map[locs[i]], page_data, granularity);
+            pmem_memset_persist(&map[locs[i]], set, granularity);
 //            memcpy(&map[locs[i]], page_data, granularity);
 //            asm volatile ("clwb (%0)"::"r"(&map[locs[i]]));
 //            asm volatile ("sfence":: : "memory");
