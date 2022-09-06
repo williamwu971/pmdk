@@ -33,6 +33,7 @@ check_cpu_cache(const char *domain_path)
 	int domain_fd;
 	int cpu_cache = 0;
 
+
 	if ((domain_fd = os_open(domain_path, O_RDONLY)) < 0) {
 		LOG(1, "!open(\"%s\", O_RDONLY)", domain_path);
 			goto end;
@@ -59,6 +60,8 @@ check_cpu_cache(const char *domain_path)
 		cpu_cache = -1;
 		goto end;
 	}
+
+    printf("=== %s === %s\n",domain_path,domain_value);
 
 	domain_value[len - 1] = '\0';
 	LOG(15, "detected persistent_domain: %s", domain_value);
