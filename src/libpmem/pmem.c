@@ -866,7 +866,7 @@ pmem_init(void)
 	} else {
 		flush = 1;
 		LOG(3, "Flushing CPU cache");
-        puts( "Not flushing CPU_cache, eADR detected");
+        puts("Flushing CPU cache");
 	}
 
 	Funcs.memmove_funcs = info.memmove_funcs;
