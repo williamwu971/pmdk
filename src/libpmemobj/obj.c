@@ -988,6 +988,30 @@ obj_descr_check(PMEMobjpool *pop, const char *layout, size_t poolsize)
 	return 0;
 }
 
+void fake_persist(const void *addr, size_t len){
+    (void)addr;
+    (void)len;
+}
+void fake_flush(const void *addr, size_t len){
+    (void)addr;
+    (void)len;
+}
+void fake_drain(void){
+
+}
+void *fake_memcpy(void *pmemdest, const void *src, size_t len, unsigned flags){
+    (void)flags;
+    return memcpy(pmemdest,src,len);
+}
+void *fake_memmove(void *pmemdest, const void *src, size_t len, unsigned flags){
+    (void)flags;
+    return memmove(pmemdest,src,len);
+}
+void *fake_memset(void *pmemdest, int c, size_t len, unsigned flags){
+    (void)flags;
+    memset(pmemdest,c,len);
+}
+
 /*
  * obj_replica_init_local -- (internal) initialize runtime part
  *                               of the local replicas
@@ -1030,6 +1054,15 @@ obj_replica_init_local(PMEMobjpool *rep, int is_pmem, size_t resvsize)
 		rep->memmove_local = obj_nopmem_memmove;
 		rep->memset_local = obj_nopmem_memset;
 	}
+
+    rep->persist_local = fake_persist;
+    rep->flush_local = fake_flush;
+    rep->drain_local = fake_drain;
+    rep->memcpy_local = fake_memcpy;
+    rep->memmove_local = fake_memmove;
+    rep->memset_local = fake_memset;
+
+    puts("fake");
 
 	return 0;
 }
