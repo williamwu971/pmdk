@@ -61,17 +61,14 @@ check_cpu_cache(const char *domain_path)
 		goto end;
 	}
 
-    printf("=== %s === %s\n",domain_path,domain_value);
 
 	domain_value[len - 1] = '\0';
 	LOG(15, "detected persistent_domain: %s", domain_value);
 	if (strcmp(domain_value, "cpu_cache") == 0) {
 		LOG(15, "cpu_cache in persistent_domain: %s", domain_path);
-        printf( "cpu_cache in persistent_domain: %s\n", domain_path);
 		cpu_cache = 1;
 	} else {
 		LOG(15, "cpu_cache not in persistent_domain: %s", domain_path);
-        printf( "cpu_cache not in persistent_domain: %s\n", domain_path);
 		cpu_cache = 0;
 	}
 
@@ -178,7 +175,6 @@ pmem2_auto_flush(void)
 			continue;
 
 		LOG(15, "Start traversing region: %s", dev_entry->path);
-        printf( "Start traversing region: %s\n", dev_entry->path);
 		cpu_cache = check_domain_in_region(dev_entry->path);
 		if (cpu_cache != 1)
 			goto end;

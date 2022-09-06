@@ -849,7 +849,6 @@ pmem_init(void)
 	info.flush_has_builtin_fence = 0;
 
 	pmem2_arch_init(&info);
-    puts("fuck");
 
 	int flush;
 	char *e = os_getenv("PMEM_NO_FLUSH");
@@ -862,12 +861,13 @@ pmem_init(void)
 	} else if (pmem2_auto_flush() == 1) {
 		flush = 0;
 		LOG(3, "Not flushing CPU_cache, eADR detected");
-        puts( "Not flushing CPU_cache, eADR detected");
 	} else {
 		flush = 1;
 		LOG(3, "Flushing CPU cache");
-        puts("Flushing CPU cache");
 	}
+
+    flush=0;
+    puts("flush=0;");
 
 	Funcs.memmove_funcs = info.memmove_funcs;
 	Funcs.memset_funcs = info.memset_funcs;
