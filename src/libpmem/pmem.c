@@ -867,7 +867,7 @@ pmem_init(void)
 	}
 
     flush=0;
-    puts("flush=0;");
+    puts("\t\t### flush=%d ###\n",flush);
 
 	Funcs.memmove_funcs = info.memmove_funcs;
 	Funcs.memset_funcs = info.memset_funcs;
