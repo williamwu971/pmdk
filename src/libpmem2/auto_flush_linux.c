@@ -67,9 +67,11 @@ check_cpu_cache(const char *domain_path)
 	LOG(15, "detected persistent_domain: %s", domain_value);
 	if (strcmp(domain_value, "cpu_cache") == 0) {
 		LOG(15, "cpu_cache in persistent_domain: %s", domain_path);
+        printf( "cpu_cache in persistent_domain: %s", domain_path);
 		cpu_cache = 1;
 	} else {
 		LOG(15, "cpu_cache not in persistent_domain: %s", domain_path);
+        printf( "cpu_cache not in persistent_domain: %s", domain_path);
 		cpu_cache = 0;
 	}
 
