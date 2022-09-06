@@ -116,8 +116,8 @@ int main(int argc, char **argv) {
 //    memset(map, 0, sb.st_size);
 
     /* Allocate data to copy to the file */
-//    char *page_data = aligned_alloc(PAGE_SIZE, granularity);
-//    memset(page_data, lehmer64(), granularity);
+    char *page_data = aligned_alloc(PAGE_SIZE, granularity);
+    memset(page_data, lehmer64(), granularity);
 
     /*for(int i = 0; i < nb_accesses; i++) {
        memcpy(map[location], xxx, size);
