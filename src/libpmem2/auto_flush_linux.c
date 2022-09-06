@@ -173,6 +173,7 @@ pmem2_auto_flush(void)
 			continue;
 
 		LOG(15, "Start traversing region: %s", dev_entry->path);
+        printf( "Start traversing region: %s\n", dev_entry->path);
 		cpu_cache = check_domain_in_region(dev_entry->path);
 		if (cpu_cache != 1)
 			goto end;
