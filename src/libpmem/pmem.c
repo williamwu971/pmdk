@@ -849,6 +849,7 @@ pmem_init(void)
 	info.flush_has_builtin_fence = 0;
 
 	pmem2_arch_init(&info);
+    puts("fuck");
 
 	int flush;
 	char *e = os_getenv("PMEM_NO_FLUSH");
